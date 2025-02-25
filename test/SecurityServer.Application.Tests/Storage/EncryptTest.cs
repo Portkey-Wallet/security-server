@@ -1,3 +1,5 @@
+using System.Text;
+using AElf;
 using SecurityServer.Common;
 using SecurityServer.Dtos;
 using Shouldly;
@@ -60,6 +62,13 @@ public class EncryptTest : SecurityServerApplicationTestBase
     {
         Output.WriteLine(EncryptHelper.AesCbcEncrypt("a", "a"));
         Output.WriteLine(EncryptHelper.AesCbcEncrypt("a", "a"));
+        
+        var result = EncryptHelper.AesCbcEncrypt("hahaha",
+            "1234567890");
+        var encryptData = ByteArrayHelper.HexStringToByteArray(result);
+        var recovery = EncryptHelper.AesCbcDecrypt(encryptData,
+            Encoding.UTF8.GetBytes("1234567890"));
+        var recoveryStr = Encoding.UTF8.GetString(recovery);
     }
     
     

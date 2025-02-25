@@ -38,15 +38,15 @@ public static class AssertHelper
         IsTrue(guid != Guid.Empty, reason, args);
     }
     
-    public static void IsEmpty<T>([CanBeNull] IEnumerable<T> collection, [CanBeNull] string reason, [ItemCanBeNull] params object[] args)
-    {
-        IsTrue(collection.IsNullOrEmpty(), reason, args);
-    }
-
-    public static void NotEmpty<T>([CanBeNull] IEnumerable<T> collection, [CanBeNull] string reason, [ItemCanBeNull] params object[] args)
-    {
-        IsTrue(!collection.IsNullOrEmpty(), reason, args);
-    }
+    // public static void IsEmpty<T>([CanBeNull] IEnumerable<T> collection, [CanBeNull] string reason, [ItemCanBeNull] params object[] args)
+    // {
+    //     IsTrue(collection.IsNullOrEmpty(), reason, args);
+    // }
+    //
+    // public static void NotEmpty<T>([CanBeNull] IEnumerable<T> collection, [CanBeNull] string reason, [ItemCanBeNull] params object[] args)
+    // {
+    //     IsTrue(!collection.IsNullOrEmpty(), reason, args);
+    // }
 
     public static void IsNull(object obj, [CanBeNull] string reason, [ItemCanBeNull] params object[] args)
     {
